@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Nosso Aniversário de Namoro 💖</title>
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    min-height: 100%;
+    background: linear-gradient(135deg, #000000, #ff2d95);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ff2d95;
+    overflow-x: hidden;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px 60px;
+  }
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px #ff2d95;
+  }
+  #message {
+    font-size: 1.2rem;
+    max-width: 320px;
+    line-height: 1.5;
+    margin: 1rem auto 2rem;
+  }
+  #countdown {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #ff2d95;
+    margin-bottom: 30px;
+  }
+  #photos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .animated-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: drop-shadow(0 0 6px #ff2d95);
+    animation: aggressiveZoom 4s infinite alternate ease-in-out;
+  }
+  .animated-photo:nth-child(2) {
+    animation-delay: 1.5s;
+  }
+  .animated-photo:nth-child(3) {
+    animation-delay: 3s;
+  }
+  #finalText {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ff2d95;
+    margin-bottom: 80px;
+    animation: fadeInUp 2s forwards 5s;
+  }
+  #footerBadge {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255,45,149,0.85);
+    padding: 6px 10px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px #ff2d95;
+    cursor: default;
+    user-select: none;
+    z-index: 1100;
+  }
+  #footerBadge img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 2px solid white;
+  }
+  #footerBadge span {
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  #musicControl {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff2d95;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 14px #ff2d95;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  #musicControl:hover {
+    background-color: #d91c77;
+  }
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes aggressiveZoom {
+    0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 6px #ff2d95);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.15) rotate(3deg);
+      filter: drop-shadow(0 0 12px #ff2d95);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1) rotate(-3deg);
+      filter: drop-shadow(0 0 6px #ff2d95);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    #countdown { font-size: 2rem; }
+    #message { max-width: 280px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Feliz Aniversário de Namoro! 💖</h1>
+<div id="message">
+  Eu não sei nem como colocar em palavras tudo que sinto quando olho pra você e penso em nós dois. Parece que foi ontem que tudo começou, e desde então, cada momento ao seu lado virou um pedaço lindo da minha vida. Não são só os dias que contam... são os momentos, os sorrisos, as conversas bobas e até os silêncios que dizem tanto. <br><br>
+  Você me mostra todos os dias o que é amor de verdade, aquele que conforta, acalma e faz a gente querer ser melhor. Obrigado por me permitir estar ao seu lado. Quero continuar contando cada segundo ao seu lado, vivendo tudo com você, rindo, sonhando e amando cada detalhe do que somos. ❤️ <br><br>
+  Eu te amo, e sempre vou te amar. O primeiro dia 16 foi só o começo.
+</div>
+
+<div id="countdown">Carregando...</div>
+
+<div id="photos">
+  <img src="Fotos do Site/Gaby1.jpeg" alt="Foto dela 1" class="animated-photo" />
+  <img src="Fotos do Site/Gaby2.jpeg" alt="Foto dela 2" class="animated-photo" />
+  <img src="Fotos do Site/Gaby3.jpeg" alt="Foto dela 3" class="animated-photo" />
+</div>
+
+<div id="finalText">A Minha Mulher 😻</div>
+
+<audio id="music" src="Audios do site/Chase_atlantic_SWIN.mp3" preload="auto" loop></audio>
+
+<button id="musicControl">▶️ Tocar Música</button>
+
+<canvas id="canvas"></canvas>
+
+<div id="footerBadge">
+  <img src="Fotos do Site/Mk.jpeg" alt="Sua foto">
+  <span>Edited by Melkids Sabatine</span>
+</div>
+
+<script>
+  const countdownEl = document.getElementById('countdown');
+  const startDate = new Date('2024-12-16T00:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    let diff = now - startDate;
+    if(diff < 0) diff = 0;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let width, height, particles;
+  function initCanvas() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    particles = [];
+    const particleCount = Math.floor(width / 20);
+    function randNormal(mu, sigma) {
+      let u = 0, v = 0;
+      while(u === 0) u = Math.random();
+      while(v === 0) v = Math.random();
+      return mu + sigma * Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    }
+    const centerX = width / 2;
+    const centerY = height / 2;
+    for(let i=0; i < particleCount; i++) {
+      let x = Math.min(Math.max(randNormal(centerX, width / 6), 0), width);
+      let y = Math.min(Math.max(randNormal(centerY, height / 6), 0), height);
+      particles.push({
+        x, y,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: 2 + Math.random() * 2
+      });
+    }
+  }
+  function distance(p1, p2) {
+    return Math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2);
+  }
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = '#ff2d95';
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+      ctx.fill();
+    });
+    const maxDist = 100;
+    ctx.strokeStyle = 'rgba(255, 45, 149, 0.3)';
+    ctx.lineWidth = 1;
+    for(let i=0; i < particles.length; i++) {
+      for(let j=i+1; j < particles.length; j++) {
+        let dist = distance(particles[i], particles[j]);
+        if(dist < maxDist) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  function animate() {
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > width) p.vx *= -1;
+      if(p.y < 0 || p.y > height) p.vy *= -1;
+    });
+    draw();
+    requestAnimationFrame(animate);
+  }
+  window.addEventListener('resize', initCanvas);
+  initCanvas();
+  animate();
+
+  const music = document.getElementById('music');
+  const btn = document.getElementById('musicControl');
+  btn.addEventListener('click', () => {
+    if(music.paused) {
+      music.play().then(() => {
+        btn.textContent = '⏸️ Pausar Música';
+        btn.style.backgroundColor = '#d91c77';
+      }).catch(() => {
+        alert('Erro ao tocar áudio.');
+      });
+    } else {
+      music.pause();
+      btn.textContent = '▶️ Tocar Música';
+      btn.style.backgroundColor = '#ff2d95';
+    }
+  });
+</script>
+
+</body>
+</html>
